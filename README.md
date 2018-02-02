@@ -66,6 +66,35 @@ To serve it on `localhost:8000`
 $ grunt connect
 ```
 
+## Vue component
+```
+<template>
+    <span v-if="iso" class="flag-icon" :class="flagIconClass" :title="title || iso"></span>
+</template>
+
+<script>
+    export default {
+        name: 'flag',
+        props: {
+            iso: { type: String, default: null },
+            title: { type: String, default: null },
+            squared: { type: Boolean, default: true },
+        },
+        computed: {
+            flagIconClass() {
+                return ((!!this.squared) ? 'flag-icon-squared ' : '') + 'flag-icon-' + this.iso.toLowerCase();
+            }
+        }
+    }
+</script>
+
+<style type="sass">
+    $flag-icon-css-include: 'nl', 'be', 'de', 'gr', 'it'
+    @import '~flag-icon-css/sass/flag-icon.scss'
+</style>
+```
+Taken from https://github.com/vikkio88/vue-flag-icon
+
 To have only specific countries in the css file, remove the ones that you don't
 need from the
 [`flag-icon-list.less`](https://github.com/lipis/flag-icon-css/blob/master/less/flag-icon-list.less)
