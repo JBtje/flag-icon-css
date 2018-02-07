@@ -76,9 +76,9 @@ $ grunt connect
     export default {
         name: 'flag',
         props: {
-            iso: { type: String, default: null },
-            title: { type: String, default: null },
-            squared: { type: Boolean, default: true },
+            iso: {type: String, default: null},
+            title: {type: String, default: null},
+            squared: {type: Boolean, default: false},
         },
         computed: {
             flagIconClass() {
@@ -88,9 +88,11 @@ $ grunt connect
     }
 </script>
 
-<style type="sass">
-    $flag-icon-css-include: 'nl', 'be', 'de', 'gr', 'it'
-    @import '~flag-icon-css/sass/flag-icon.scss'
+<style lang="scss">
+    $flag-icon-css-include: 'nl', 'be', 'de', 'gr', 'it';
+    $flag-icon-css-path: '~flag-icon-css/flags';
+
+    @import '~flag-icon-css/sass/flag-icon.scss';
 </style>
 ```
 Taken from https://github.com/vikkio88/vue-flag-icon
