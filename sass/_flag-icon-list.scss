@@ -1,4 +1,4 @@
-@if variable-exists(flag-icon-css-include) {
+@if variable-exists(flag-icon-css-include) and length($flag-icon-css-include) > 0 {
    @each $country in $flag-icon-css-include {
      @include flag-icon($country);
    }
